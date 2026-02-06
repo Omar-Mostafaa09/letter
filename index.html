@@ -236,7 +236,11 @@ let started = false;
 function scrollToLetter(){
     document.getElementById("letter").scrollIntoView({behavior:"smooth"});
 
-    // يمنع إنه يكتب مرتين لو دوست الزرار تاني
+    const letterBox = document.querySelector(".letter");
+
+    // إظهار الصندوق فورًا
+    letterBox.classList.add("show");
+
     if(!started){
         started = true;
         type();
@@ -247,7 +251,7 @@ function type(){
     if(i < text.length){
         document.getElementById("loveText").innerHTML += text[i];
         i++;
-        setTimeout(type, 25); // سرعة الكتابة (صغّر الرقم = أسرع)
+        setTimeout(type, 50); // سرعة الكتابة (صغّر الرقم = أسرع)
     }
 }
 
@@ -266,5 +270,6 @@ setTimeout(()=>h.remove(),7000);
 
 </body>
 </html>
+
 
 
