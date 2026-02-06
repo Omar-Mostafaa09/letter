@@ -215,7 +215,6 @@ section{padding:90px 20px;text-align:center;}
 
 </div>
 </section>
-
 <script>
 const text = `Happy Valentine’s Day, Jeje ❤️
 
@@ -235,37 +234,37 @@ let i = 0;
 let started = false;
 
 function scrollToLetter(){
-  document.getElementById("letter").scrollIntoView({behavior:"smooth"});
-  if(!started){
-    started = true;
-    type();
-  }
+    document.getElementById("letter").scrollIntoView({behavior:"smooth"});
+
+    // يمنع إنه يكتب مرتين لو دوست الزرار تاني
+    if(!started){
+        started = true;
+        type();
+    }
 }
 
 function type(){
-  const el = document.getElementById("loveText");
-
-  if(i < text.length){
-    el.innerHTML += text[i] === "\n" ? "<br>" : text[i];
-    i++;
-    setTimeout(type, 30);
-  }else{
-    document.querySelector(".letter").classList.add("show");
-  }
+    if(i < text.length){
+        document.getElementById("loveText").innerHTML += text[i];
+        i++;
+        setTimeout(type, 25); // سرعة الكتابة (صغّر الرقم = أسرع)
+    }
 }
 
-/* FLOATING HEARTS */
+/* قلوب طايرة */
 setInterval(()=>{
-  let h=document.createElement("div");
-  h.className="heart";
-  h.innerHTML="❤";
-  h.style.left=Math.random()*100+"vw";
-  h.style.fontSize=(Math.random()*20+12)+"px";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),7000);
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(Math.random()*20+12)+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),7000);
 },400);
 </script>
 
+
 </body>
 </html>
+
 
