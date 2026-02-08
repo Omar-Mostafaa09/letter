@@ -253,8 +253,8 @@ music.volume = 0.01;
 music.play();
 
 // رفع الصوت تدريجيًا بشكل ناعم
-let targetVolume = 0.6;   // أقصى صوت تحبه
-let step = 0.01;          // مقدار الزيادة كل مرة
+let targetVolume = 0.06;   // أقصى صوت تحبه
+let step = 0.001;          // مقدار الزيادة كل مرة
 let speed = 300;          // كل قد إيه يعلي (بالملي ثانية)
 
 let fade = setInterval(() => {
@@ -299,6 +299,7 @@ setTimeout(()=>h.remove(),7000);
 
 </body>
 </html>
+
 
 
 
