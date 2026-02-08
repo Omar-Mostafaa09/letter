@@ -248,8 +248,8 @@ function scrollToLetter(){
       music.play();
     
    let fade = setInterval(() => {
-        if (music.volume < 0.7) {
-            music.volume += 0.2;
+        if (music.volume < 0.2) {
+            music.volume += 0.02;
         } 
         else {
             clearInterval(fade);
@@ -290,6 +290,7 @@ setTimeout(()=>h.remove(),7000);
 
 </body>
 </html>
+
 
 
 
