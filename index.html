@@ -241,20 +241,29 @@ function scrollToLetter(){
 
     const letterBox = document.querySelector(".letter");
     // تشغيل الموسيقى
-    const music = document.getElementById("bgMusic");
-        // يبدأ من ثانية معينة في الأغنية (مثلاً بعد 30 ثانية)
-    music.currentTime = 0;
-        music.volume = 0.02;
-      music.play();
-    
-   let fade = setInterval(() => {
-        if (music.volume < 0.6) {
-            music.volume += 0.02;
-        } 
-        else {
-            clearInterval(fade);
-        }
-    }, 200);
+const music = document.getElementById("bgMusic");
+
+// يبدأ من بداية الأغنية
+music.currentTime = 0;
+
+// صوت واطي جدًا في البداية
+music.volume = 0.01;
+
+// تشغيل
+music.play();
+
+// رفع الصوت تدريجيًا بشكل ناعم
+let targetVolume = 0.6;   // أقصى صوت تحبه
+let step = 0.01;          // مقدار الزيادة كل مرة
+let speed = 300;          // كل قد إيه يعلي (بالملي ثانية)
+
+let fade = setInterval(() => {
+    if (music.volume < targetVolume) {
+        music.volume = Math.min(music.volume + step, targetVolume);
+    } else {
+        clearInterval(fade);
+    }
+}, speed);
     // يبدأ بصوت واطي قوي
 
   
@@ -290,6 +299,7 @@ setTimeout(()=>h.remove(),7000);
 
 </body>
 </html>
+
 
 
 
