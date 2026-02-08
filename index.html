@@ -246,13 +246,7 @@ function scrollToLetter(){
     music.currentTime = 30;
 
     // يبدأ بصوت واطي قوي
-    music.volume = 0.05;
-        let fade = setInterval(() => {
-        if (music.volume < 0.4) {
-            music.volume += 0.02;
-        } else {
-            clearInterval(fade);
-        }
+
     music.play();
     // إظهار الصندوق فورًا
     letterBox.classList.add("show");
@@ -286,6 +280,7 @@ setTimeout(()=>h.remove(),7000);
 
 </body>
 </html>
+
 
 
 
