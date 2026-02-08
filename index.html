@@ -244,14 +244,19 @@ function scrollToLetter(){
     const music = document.getElementById("bgMusic");
         // يبدأ من ثانية معينة في الأغنية (مثلاً بعد 30 ثانية)
     music.currentTime = 7;
+      music.play();
     
    let fade = setInterval(() => {
         if (music.volume < 0.4) {
             music.volume += 0.02;
         } 
+        else {
+            clearInterval(fade);
+        }
+    }, 200);
     // يبدأ بصوت واطي قوي
 
-    music.play();
+  
     // إظهار الصندوق فورًا
     letterBox.classList.add("show");
 
@@ -284,6 +289,7 @@ setTimeout(()=>h.remove(),7000);
 
 </body>
 </html>
+
 
 
 
