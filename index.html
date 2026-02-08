@@ -243,8 +243,12 @@ function scrollToLetter(){
     // تشغيل الموسيقى
     const music = document.getElementById("bgMusic");
         // يبدأ من ثانية معينة في الأغنية (مثلاً بعد 30 ثانية)
-    music.currentTime = 30;
-
+    music.currentTime = 7;
+    
+   let fade = setInterval(() => {
+        if (music.volume < 0.4) {
+            music.volume += 0.02;
+        } 
     // يبدأ بصوت واطي قوي
 
     music.play();
@@ -280,6 +284,7 @@ setTimeout(()=>h.remove(),7000);
 
 </body>
 </html>
+
 
 
 
