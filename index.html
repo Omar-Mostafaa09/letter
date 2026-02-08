@@ -244,6 +244,7 @@ function scrollToLetter(){
     const music = document.getElementById("bgMusic");
         // يبدأ من ثانية معينة في الأغنية (مثلاً بعد 30 ثانية)
     music.currentTime = 0;
+        music.volume = 0.05;
       music.play();
     
    let fade = setInterval(() => {
@@ -289,6 +290,7 @@ setTimeout(()=>h.remove(),7000);
 
 </body>
 </html>
+
 
 
 
