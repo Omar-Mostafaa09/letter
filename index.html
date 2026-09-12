@@ -202,6 +202,47 @@ section{padding:90px 20px;text-align:center;}
 .title{color:#fff;font-size:15px;}
 .artist{color:#e7bcbc;font-size:13px;}
 .time{color:#d9a5a5;font-size:13px;}
+    .time-apart{
+    position:absolute;
+    top:25px;
+    right:25px;
+
+    padding:12px 16px;
+
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+
+    text-align:center;
+
+    color:#f8d6da;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
+
+    z-index:10;
+}
+
+.time-apart-title{
+    font-size:9px;
+    letter-spacing:2px;
+    opacity:.65;
+    margin-bottom:4px;
+}
+
+.time-apart-days{
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    font-weight:500;
+}
+
+.time-apart-time{
+    margin-top:2px;
+    font-size:10px;
+    letter-spacing:1px;
+    color:#dcaeb5;
+}
 
 /* ===== MOBILE ===== */
 @media (max-width:600px){
@@ -253,7 +294,13 @@ section{padding:90px 20px;text-align:center;}
 </head>
 
 <body>
+
     <audio id="bgMusic" src="music.mp3"></audio>
+    <div class="time-apart">
+    <div class="time-apart-title">TIME APART ♡</div>
+    <div class="time-apart-days" id="apartDays">0 Days</div>
+    <div class="time-apart-time" id="apartTime">00 : 00 : 00</div>
+</div>
 
     <link rel="icon" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
@@ -382,6 +429,29 @@ h.style.fontSize=(Math.random()*20+12)+"px";
 document.body.appendChild(h);
 setTimeout(()=>h.remove(),7000);
 },400);
+
+const apartSince = new Date("2026-08-15T22:30:00");
+
+function updateApartTime(){
+
+    const now = new Date();
+    const diff = now - apartSince;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("apartDays").textContent =
+        `${days} Days`;
+
+    document.getElementById("apartTime").textContent =
+        `${String(hours).padStart(2,"0")} : ${String(minutes).padStart(2,"0")} : ${String(seconds).padStart(2,"0")}`;
+}
+
+updateApartTime();
+setInterval(updateApartTime,1000);
+
 </script>
 
 
